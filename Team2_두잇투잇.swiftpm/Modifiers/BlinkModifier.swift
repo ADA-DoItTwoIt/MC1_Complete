@@ -16,7 +16,7 @@ struct BlinkViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .opacity(blinking ? 0 : 1)
-            .animation(.easeInOut(duration: duration).repeatForever())
+            .animation(.easeInOut(duration: duration).repeatForever(), value: blinking)
             .onAppear {
                 withAnimation {
                     blinking = true
